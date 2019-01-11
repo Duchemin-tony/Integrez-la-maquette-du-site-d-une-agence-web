@@ -1,0 +1,1337 @@
+     /* Eléments principaux de la page */
+/* Police de texte */
+@font-face
+{
+    font-family: 'Roboto-Regular';
+    src: url('fonts/Roboto-Regular.ttf') format('truetype');
+}
+@font-face
+{
+	font-family: 'Roboto-Black';
+	src: url('fonts/Roboto-Black.ttf') format('truetype');
+}
+/* Corps de la page , marge auto et police de texte utilisé */	
+body
+{
+	margin: auto;
+	font-family: 'Roboto-Regular',Arial;
+}
+i /* couleur des icones dans la page */
+{
+	color: #5CADD3;
+}
+p, label 
+{
+	color: #686C71;
+	font-family: 'Roboto-Regular',Arial;
+}
+a
+{
+	font-family: 'Roboto-Regular',Arial;
+}
+h1,h2,h3
+{
+	font-family: 'Roboto-Black', Arial black;
+}
+h2
+{
+	font-size: 2.5em;
+}
+
+#contact h2  /* pour que mon code soit valide au W3C, il me fallait un titre dans la section contact, je l'es mis est supprimé avec cette propriété */
+{
+	display: none;
+}
+    
+     /* Barre de Menu + Logo */
+
+.en_tete
+{
+	height: 80px;
+}
+#menu
+{
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	position: fixed ;
+	z-index:3; 
+	padding-bottom: 10px;
+	padding-top: 10px;
+	background: white;
+	opacity: 0.9;
+}
+.logo 
+{
+	position: fixed;
+	z-index: 4;
+	padding-left: 70px;
+	padding-top: 12px;
+}
+
+
+     /* Menu en-tête */
+
+header ul 
+{
+	list-style-type: none;
+	display: flex;
+	margin-right: 100px;
+}
+header li 
+{
+	margin-right: 30px;
+	
+}
+header a 
+{
+	color: #686C71 ;
+	
+}
+header a:hover
+{
+	color: black;
+}
+     /* MENU LAVALAMP en tête */
+ul
+{
+     position:relative;
+     height:2em;
+     margin:15px;
+     padding:0;
+}
+header ul li
+{
+     text-align: center;
+}
+header ul li:nth-child(1) a{width:4em;}
+header ul li:nth-child(2) a{width:4em;}
+header ul li:nth-child(3) a{width:4em;}
+header ul li:nth-child(4) a{width:4em;}
+
+header ul li a
+{
+     display:inline-block;
+     box-sizing:border-box;
+     padding:.4em .2em;
+     color:#686C71;
+     text-decoration:none;
+     background-color:transparent;
+     transition:background-color .3s ease;
+}
+header ul li a:hover,ul li a:focus
+{
+     color:black;
+     background-color:rgba(255,255,255,.4);
+     transition:background-color .3s ease .4s;
+}
+
+header ul li:last-child::after
+{
+     content:"";
+     position:absolute;
+     left:0px;
+     top:-25px;
+     display:block;
+     width:4em;
+     height:3px;
+     background:#5CADD3;
+     border-top:1px solid rgba(255,255,255,.8);
+     transition: all .5s ease;
+}
+header ul li:hover ~ li:last-child::after,
+header ul li:last-child:hover::after
+{
+	background:#5CADD3;
+}
+
+header ul li:nth-child(1):hover ~ li:last-child::after{left:0;width:4em;}
+header ul li:nth-child(2):hover ~ li:last-child::after{left:6em;width:4em;}
+header ul li:nth-child(3):hover ~ li:last-child::after{left:12em;width:4em;}
+header ul li:last-child:hover::after{left:18em;width:4em;}
+
+
+     /* Slider */
+
+/* CARROUSEL */
+.carousel 
+{
+    position: relative;
+    width: 100%;
+}
+
+.carousel-inner 
+{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-open  /* Pour retirer les points de checked */
+{
+	display: none;
+}
+
+.carousel-open:checked + .carousel-item 
+{
+    position: static;
+    opacity: 1;
+}
+
+.carousel-item 
+{
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.6s ease-out;
+}
+
+.carousel-item img 
+{
+    display: block;
+    height: auto;
+    width: 100%;
+}
+/* background fleche de selection */
+.carousel-control 
+{
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    cursor: pointer;
+    display: none;
+    font-size: 3rem;
+    position: absolute;
+    top: 50%;
+	-webkit-transform: translate(0,-50%);
+	-ms-transform: translate(0,-50%);
+	-o-transform: translate(0%,-50%);
+	-moz-transform: translate(0,-50%);
+    transform: translate(0, -50%);
+    cursor: pointer;
+    width: 40px;
+	height: 80px;
+    z-index: 1;
+}
+/* barre de progression factice */
+#timeline
+{
+	position: initial;
+	background: rgba(0,0,0,0.5);
+	height: 5px;
+	width: 100%;
+	top: 200px;
+	background-image:linear-gradient(to right,#5CADD3, rgb(75,74,84)80%);
+}
+/* fleche dans carousel */
+.fleche_gauche 
+{
+	padding-top: 15px;
+	padding-left: 5px;
+	color: white;
+}
+
+.fleche_droite 
+{
+	padding-top: 15px;
+	padding-right: 5px;
+	color: white;
+}
+/* position et forme background fleche de selection */
+.carousel-control.prev 
+{
+    left: 0;
+    border-radius: 0 40px 40px 0;
+    text-align: left;
+	
+}
+
+.carousel-control.next 
+{
+    border-radius: 40px 0 0 40px;
+    right: 0;
+    text-align: right;
+}
+/* background fleche de selection au survol */
+.carousel-control:hover 
+{
+    background: rgba(0, 0, 0, 0.7);
+    color: #aaaaaa;
+}
+
+#carousel-1:checked ~ .control-1,
+#carousel-2:checked ~ .control-2 
+{
+    display: block;
+}
+
+.carousel-bullet 
+{
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 4rem;
+}
+/* couleur de Webagency dans carousel */
+span
+{
+	color: #5CADD3;
+}
+
+     /* Texte dans le Slider */
+.texte_slider
+{
+	position: absolute;
+	z-index: 1;
+	margin-top: 150px;
+	margin-left: 100px;
+	color: white;
+}
+.texte_slider p 
+{
+	color: white;
+	font-size: 0.9em;
+}
+/* boutoun plus d'infos */
+.texte_slider a 
+{
+	color: white;
+	display: block;
+	padding: 10px;
+	border-radius: 3px;
+	background-color: #5CADD3;
+	border-bottom: 4px solid #4494BB;
+	width: 17%;
+	text-decoration: none;
+}
+/* bouton plus d'infos au survol*/
+.texte_slider a:hover
+{
+	color: white;
+	border: 1px solid #4494BB;
+}
+
+     /* Section 1 Nos Services */
+
+#nos_services 
+{
+	text-align: center;
+	margin-top: 100px;
+	padding-top: 10px;
+}
+/* Barre séparatrice */
+#nos_services hr 
+{
+	height: 1px;
+	width: 115px;
+	border:none;
+	background-color: #C7C7C9;
+	box-shadow: none;
+}
+#nos_services p
+{
+	width: 80%;
+	text-align: center;
+	margin: auto;
+}
+#rond1 /* icone du rond dans la barre séparatrice */
+{
+	position: relative;
+	bottom: 20px;
+	border: 4px solid white;
+	border-radius: 100%;
+}
+.container /* comprend l'image de l'écran , les icones, et le texte */
+{
+	display: flex;
+	justify-content: space-between;
+}
+/* image de l'ecran */
+.ecran img
+{
+	width: 500px;
+	margin-top: 80px;
+}
+.service
+{
+	width: 40%;
+	padding-right: 30px;
+	margin-bottom: 100px;
+}
+.liste-service
+{
+	padding-bottom: 50px;
+	height: 100px;
+}
+#icone /* icone de UX designe */
+{
+	position: relative;
+	font-size: 1.7em;
+	padding: 20px;
+	border: 1px solid #C7C7C9;
+	border-radius: 50%;
+	right: 100px;
+	top: 80px;
+}
+#icone2 /* icone UI design */
+{
+	position: relative;
+	font-size: 1.7em;
+	padding: 20px;
+	border: 1px solid #C7C7C9;
+	border-radius: 50%;
+	right: 100px;
+	top: 80px;
+}
+#icone3 /* icone SEO */
+{
+	position: relative;
+	font-size: 1.7em;
+	padding: 20px;
+	border: 1px solid #C7C7C9;
+	border-radius: 50%;
+	right: 100px;
+	top: 80px;
+}
+#rond /* icone du rond de l'icone UX design */
+{
+	position: relative;
+	border: 5px solid white;
+	border-radius: 50%;
+	right: 120px;
+	top: 76px;	
+}
+#rond3 /* icone du rond de l'icone UI design */
+{
+	position: relative;
+	border: 5px solid white;
+	border-radius: 50%;	
+	right: 120px;
+	top: 76px;
+}
+#rond4 /* icone du rond de l'icon SEO */
+{
+	position: relative;
+	border: 5px solid white;
+	border-radius: 50%;
+	right: 120px;
+	top: 76px;	
+}
+
+     /* Section 2 Nos Projets */
+
+.projets /* La Couleur de fond de la section nos projets */
+{
+	background-color: #F5F5F5;
+	padding-bottom: 50px;
+
+}
+#projets
+{
+	text-align: center;
+	padding-top: 5px;
+}
+#projets hr /* Barre séparatrice */
+{
+	height: 1px;
+	width: 115px;
+	border:none;
+	background-color: #C7C7C9;
+	box-shadow: none;
+}
+#rond2 /* icone du rond dans la barre séparatrice */
+{
+	position: relative;
+	bottom: 20px;
+	border: 4px solid white;
+	border-radius: 50%
+}
+#projets p
+{
+	margin: auto;
+	width: 80%;
+	line-height: 180%;
+}
+     /* Lien de navigation de la section nos services */
+.nav
+{
+	display: flex;
+	justify-content: center;
+	margin-top: 50px;
+	margin-bottom: 46px;
+}
+.nav ul
+{
+	display: flex;
+	list-style: none;
+	text-align: center;
+}
+.nav a
+{
+	display: block;
+	background-color: #C7C7C9;
+	border-bottom: 4px solid #C7C7C8 ;
+	color: #686C71;
+	width: 70px;
+	text-decoration: none;
+	padding: 10px;
+	position: relative;
+}
+.nav a:hover
+{
+	color: white;
+	background-color: #5CADD3;
+	border-bottom: 4px solid #4494BB;
+}
+.nav a:focus 
+{
+	color: white;
+	background-color: #5CADD3;
+	border-bottom: 4px solid #4494BB;
+}
+     /* Bordure des deux extrémité de la barre de navigations */
+.droite
+{
+	border-radius: 0px 5px 5px 0px;
+}
+.gauche
+{
+	border-radius: 5px 0px 0px 5px;
+}
+
+li .gauche
+{
+	background-color: #5CADD3;
+	color: white;
+	border-bottom: 4px solid #4494BB;
+}
+     /* les triangles qui pointe vers le bas sur le lien de navigation */
+#triangle
+{ 
+	position: absolute;
+	font-size: 0px; 
+	line-height: 0%; 
+	width: 0px; 
+	border-top: 10px solid #4494BB;
+	border-left: 10px solid transparent; 
+	border-right: 10px solid transparent; 
+	margin-left: 35px;
+	transition: .1s ease;
+	opacity: 1;
+}
+
+.nav li:hover #triangle{opacity: 1;}
+
+#triangle1
+{ 
+	position: absolute;
+	font-size: 0px; 
+	line-height: 0%; 
+	width: 0px; 
+	border-top: 10px solid #4494BB;
+	border-left: 10px solid transparent; 
+	border-right: 10px solid transparent; 
+	margin-left: 35px;
+	transition: .1s ease;
+	opacity: 0;
+}
+
+.nav li:hover #triangle1{opacity: 1;}
+
+#triangle2
+{ 
+	position: absolute;
+	font-size: 0px; 
+	line-height: 0%; 
+	width: 0px; 
+	border-top: 10px solid #4494BB;
+	border-left: 10px solid transparent; 
+	border-right: 10px solid transparent; 
+	margin-left: 35px;
+	transition: .1s ease;
+	opacity: 0;
+}
+
+.nav li:hover #triangle2{opacity: 1;}
+
+#triangle3
+{ 
+	position: absolute;
+	font-size: 0px; 
+	line-height: 0%; 
+	width: 0px; 
+	border-top: 10px solid #4494BB;
+	border-left: 10px solid transparent; 
+	border-right: 10px solid transparent; 
+	margin-left: 35px;
+	transition: .1s ease;
+	opacity: 0;
+}
+
+.nav li:hover #triangle3{opacity: 1;}
+
+     /* les images du portfolio sur les projets déjà réalisé */
+.portfolio
+{
+	display: flex;
+	justify-content: center;
+}
+.portfolio img
+{
+	width: 258px;
+	height: 180px;
+	padding: 10px;
+	text-align: justify;
+}
+
+.image1,.image2,.image3,.image4,.image5,.image6,.image7,.image8
+{
+	position:relative;
+}
+     /* propriété qui permet l'effet de transition des images */
+.overlay
+{
+	position: absolute;
+	bottom: 14px;
+	background: rgb(0,0,0);
+	background: rgba(0,0,0,0.5);
+	color: #F1F1F1;
+	width: 78.5%;
+	right: 10px;
+	transition: .5s ease;
+	opacity: 0;
+	color: white;
+	padding: 20px;
+	top: 55%;
+}
+
+.image1:hover .overlay {opacity: 1;}
+.image2:hover .overlay {opacity: 1;}
+.image3:hover .overlay {opacity: 1;}
+.image4:hover .overlay {opacity: 1;}
+.image5:hover .overlay {opacity: 1;}
+.image6:hover .overlay {opacity: 1;}
+.image7:hover .overlay {opacity: 1;}
+.image8:hover .overlay {opacity: 1;}
+
+     /* les icones d'oeil dans les images du portfolio */
+#oeil
+{
+	position: relative;
+	bottom: 56px;
+	left: 60px;
+	color: white;
+	border: 2px solid white;
+	border-radius: 50%;
+	padding: 6px;
+	background-color: #5CADD3;
+}
+#oeil2
+{
+	position: relative;
+	bottom: 56px;
+	left: 50px;
+	color: white;
+	border: 2px solid white;
+	border-radius: 50%;
+	padding: 6px;
+	background-color: #5CADD3;
+}
+#oeil3
+{
+	position: relative;
+	bottom: 56px;
+	left: 60px;
+	color: white;
+	border: 2px solid white;
+	border-radius: 50%;
+	padding: 6px;
+	background-color: #5CADD3;
+}
+#oeil4
+{
+	position: relative;
+	bottom: 56px;
+	left: 55px;
+	color: white;
+	border: 2px solid white;
+	border-radius: 50%;
+	padding: 6px;
+	background-color: #5CADD3;
+}
+#oeil5
+{
+	position: relative;
+	bottom: 56px;
+	left: 68px;
+	color: white;
+	border: 2px solid white;
+	border-radius: 50%;
+	padding: 6px;
+	background-color: #5CADD3;
+}
+#oeil6
+{
+	position: relative;
+	bottom: 56px;
+	left: 80px;
+	color: white;
+	border: 2px solid white;
+	border-radius: 50%;
+	padding: 6px;
+	background-color: #5CADD3;
+}
+#oeil7
+{
+	position: relative;
+	bottom: 56px;
+	left: 100px;
+	color: white;
+	border: 2px solid white;
+	border-radius: 50%;
+	padding: 6px;
+	background-color: #5CADD3;
+}
+#oeil8
+{
+	position: relative;
+	bottom: 55px;
+	left: 55px;
+	color: white;
+	border: 2px solid white;
+	border-radius: 50%;
+	padding: 6px;
+	background-color: #5CADD3;
+}
+.portfolio p  /* le texte dans les images du portfolio */
+{
+	color: white;
+}
+.portfolio span
+{
+	font-weight: bold;
+	color: white;
+	font-size: 1.1em;
+}
+
+
+
+     /* Section 3 Contact */
+#contact
+{
+	margin-top: 15px;
+}
+     /* Responsive de carte google map */
+.map-responsive 
+{
+	overflow:hidden;
+	padding-bottom:56.25%;
+	position:relative;
+	height:0;
+}
+.map-responsive iframe 
+{
+	left:0;
+	top:0;
+	height:100%;
+	width:100%;
+	position:absolute;
+	border: 0;
+}
+     /* Filtre Bleu transparent sur la carte */
+.filtre
+{
+	background-color:#5CADD3;
+	opacity: 0.4;
+	position: relative;
+	height: 870px;
+	z-index: 1;
+}
+     /* Formulaire de Contact */
+form 
+{
+	display: flex;
+	flex-direction: column;
+	width: 26%;
+	border: 1px solid #CCC;
+	padding: 10px;
+	background-color: rgba(245,245,245,0.8 );
+	position: relative;
+	left: 60%;
+	bottom: 610px;
+	height: 500px;
+	z-index: 2;
+}
+.contact_info
+{
+	color: black;
+	font-size: 1.8em;
+	font-weight: bold;
+}
+input , textarea 
+{
+	padding: 10px;
+	margin: 10px;
+	border: 1px solid #CCC;
+	border-radius: 4px;
+}
+label span
+{
+	font-weight: bold;
+	color:#686C71;
+}
+.text_contact
+{
+	margin: 10px;
+	color: #686C71;
+}
+
+.submit
+{
+	width: 40%;
+	background-color: #5CADD3;
+	color: white;
+	border: 1px solid #5CADD2;
+	border-bottom:4px solid #4494BB;
+}
+.form /* pour retirer l'espace blanc du formulaire en dessous de la carte, qui reste aprés l'avoir déplacé sur la carte */ 
+{
+	height: 0;
+}
+
+
+     /* Media queries */
+
+@media all and (max-width: 1420px)
+{
+	#contact
+	{
+		width: auto;
+	}
+	#bloc_page
+	{
+		width: 100%;
+	}
+}
+@media all and (max-width: 1100px)
+{
+	.texte_slider
+	{
+		font-size: 0.9em;
+		margin-top: 50px;
+		margin-left: 80px;
+	}
+	form
+	{
+		position: relative;
+		bottom: 500px;
+	}
+	form
+	{
+		height: 400px;
+	}
+	.submit 
+	{
+		width: 50%;
+	}
+	input,textarea
+	{
+		margin: 5px;
+		padding: 5px;
+	}
+	.logo
+	{
+		padding-right: 200px;
+	}
+	.portfolio img
+	{
+		width: 226px;
+		padding: 15px;
+	}
+	.overlay
+	{
+		width: 72.5%;
+		right: 15px;
+		bottom: 19px;
+	}
+	#oeil
+	{
+		left: 25px;
+	}
+	#oeil2
+	{
+		left: 15px;
+		bottom: 55px;
+	}
+	#oeil3
+	{
+		left: 25px;
+	}
+	#oeil4
+	{
+		left: 20px;
+	}
+	#oeil5
+	{
+		left: 35px;
+	}
+	#oeil6
+	{
+		left: 50px;
+	}
+	#oeil7
+	{
+		left: 70px;
+		bottom: 55px;
+	}
+	#oeil8
+	{
+		left: 20px;
+	}
+}
+
+@media all and (max-width: 1024px)
+{
+	.portfolio img
+	{
+		width: 200px;
+		padding: 10px;
+		height: 165px;
+	}
+	#menu 
+	{
+		width: 100%;
+	}
+	.overlay
+	{
+		width: 72.8%;
+		right: 10px;
+		bottom: 14px;
+	}
+	#oeil
+	{
+		left: 135px;
+		bottom: 75px;
+	}
+	#oeil2
+	{
+		left: 135px;
+		bottom: 75px;
+	}
+	#oeil3
+	{
+		left: 135px;
+		bottom: 75px;
+	}
+	#oeil4
+	{
+		left: 135px;
+		bottom: 75px;
+	}
+	#oeil5
+	{
+		left: 10px;
+	}
+	#oeil6
+	{
+		left: 25px;
+	}
+	#oeil7
+	{
+		left: 45px;
+		bottom: 55px;
+	}
+	#oeil8
+	{
+		left: 135px;
+		bottom: 75px;
+	}	
+	#fleche_gauche
+	{
+		top: 230px;
+		left: 30px;
+	}
+	#fleche_droite
+	{
+		top: 230px;
+		right: 30px;
+	}
+	.fg
+	{
+		top:210px;
+		left: 5px;
+	}
+	.fd
+	{
+		top: 210px;
+		right: 5px;
+	}
+	.logo
+	{
+		padding-left: 40px;
+	}
+	.ecran img 
+	{
+		width: 450px;
+		margin-right: 80px;
+		padding-top: 100px;
+	}
+	.service
+	{
+		padding-right: 10px;
+		margin-bottom: 150px;
+	}
+	.liste-service
+	{
+		padding-top: 30px;
+	}
+}
+@media all and (max-width: 900px)
+{
+	#menu
+	{
+		padding-bottom: 5px;
+		padding-left: 100px;
+	}
+	.texte_slider
+	{
+		font-size: 0.8em;
+		margin-top: 10px;
+		margin-left:50px;
+	}
+	.nav
+	{
+		margin-left: 40px;
+	}
+	#contact
+	{
+		display: block;
+	}
+
+	form
+	{
+		position: static;
+		width: 97%;
+		border: none;
+		background: none;
+	}
+	input,textarea
+	{
+		padding: 5px;
+		margin: 5px;
+		width: 50%;
+	}
+	.submit
+	{
+		width: 20%;
+	}
+	#fleche_gauche
+	{
+		top: 297px;
+		left: 195px;
+	}
+	#fleche_droite
+	{
+		top: 297px;
+		right: 195px;
+	}
+	.fg
+	{
+		top:280px;
+		left: 175px;
+		height: 50px;
+		width: 50px;
+	}
+	.fd
+	{
+		top: 280px;
+		right: 175px;
+		height: 50px;
+		width: 50px;
+	}
+	.portfolio img
+	{
+		width: 175px;
+		height: 160px;
+	}
+	.overlay
+	{
+		width: 69%;
+		
+	}
+	#oeil
+	{
+		left: 110px;
+	}
+	#oeil2
+	{
+		left: 65px;
+		bottom: 75px;
+	}
+	#oeil3
+	{
+		left: 110px;
+	}
+	#oeil4
+	{
+		left: 75px;
+	}
+	#oeil5
+	{
+		left: 110px;
+		bottom: 75px;
+	}
+	#oeil6
+	{
+		left: 110px;
+		bottom: 75px;
+	}
+	#oeil7
+	{
+		left: 20px;
+		bottom: 55px;
+	}
+	#oeil8
+	{
+		left: 35px;
+	}
+}
+@media all and (max-width: 780px)
+{
+	.portfolio
+	{
+		flex-wrap: wrap;
+	}
+	.portfolio img
+	{
+		width:240px; 
+
+	}
+	.overlay
+	{
+		width: 77%;
+	}
+	#oeil
+	{
+		left: 30px;
+		bottom: 55px;
+	}
+	#oeil2
+	{
+		left: 20px;
+		bottom: 55px;
+	}
+	#oeil3
+	{
+		left: 30px;
+		bottom: 55px;
+	}
+	#oeil4
+	{
+		left: 25px;
+		bottom: 55px;
+	}
+	#oeil5
+	{
+		left: 40px;
+		bottom: 55px;
+	}
+	#oeil6
+	{
+		left: 55px;
+		bottom: 55px;
+	}
+	#oeil7
+	{
+		left: 75px;
+		bottom: 55px;
+	}
+	#oeil8
+	{
+		left: 25px;
+		bottom: 55px;
+	}
+	.container
+	{
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.service
+	{
+		width: 80%;
+	}
+	.ecran img
+	{
+		width: 80%;
+		margin-top:0px;
+	}
+	.liste-service
+	{
+		margin-left: 100px;
+	}
+}
+@media all and (max-width: 720px)
+{		
+	textarea
+	{
+		height: 18%;
+	}
+	label
+	{
+		height: 8%;
+	}
+	form
+	{
+		height: 350px;
+		width:94%;
+	}
+	#slider a
+	{
+		display: none;
+	}
+	.overlay
+	{
+		left: 5px;
+		width: 80%;
+		bottom: 9px;
+	}
+	#menu
+	{
+		position: static;
+		padding-top: 20px;
+		width: 0%;
+		padding-left: 0px;
+		margin-left: 0px;	
+	}
+	.en_tete
+	{
+		margin-top: 10px;
+		margin-bottom: 60px;
+	}
+	.logo
+	{
+		position: static;
+		padding-top: 5px;
+		padding-left: 5px;
+	}
+	#menu nav
+	{
+		width: 80%;
+	}
+	.nav ul
+	{
+		width: 50%;
+	}
+	.nav 
+	{
+		width: 75%;
+		padding-left: 5px;
+	}
+	.submit
+	{
+		width: 30%;
+	}
+	#fleche_gauche
+	{
+		display: none;
+	}
+	#fleche_droite
+	{
+		display: none;
+	}
+	.fg
+	{
+		display: none;
+	}
+	.fd
+	{
+		display: none;
+	}
+	.portfolio img
+	{
+		width: 240px;
+		height: 160px;
+		padding: 5px;
+	}
+}
+@media all and (max-width: 430px)
+{
+	.texte_slider
+	{
+		font-size: 0.6em;
+	}
+
+	.fleche_gauche 
+	{
+		position: relative;
+		top: -15px;
+		padding-left: 2px;
+		font-size: 0.5em;
+	}
+	.fleche_droite 
+	{
+		position: relative;
+		top: -15px;
+		padding-right: 2px;
+		font-size: 0.5em;
+	}
+	.carousel-control.prev 
+	{
+		width: 20px;
+		height: 40px;
+	}
+	.carousel-control.next 
+	{
+    	width: 20px;
+    	height: 40px;
+	}
+
+	.liste-service
+	{
+		margin-bottom: 60px;
+	}
+	.ecran img
+	{
+		margin-right: 0px;
+		padding-left: 40px;
+	}
+}
+@media all and (max-width: 375px)
+{
+	.nav
+	{
+		width: 50%;
+		padding: 0px;
+	}
+	.nav a 
+	{
+		padding: 2px;
+		left: 40px;
+	}
+	header li 
+	{
+		margin: 5px;
+	}
+	header ul li:nth-child(1):hover ~ li:last-child::after{left:0;width:4em;}
+	header ul li:nth-child(2):hover ~ li:last-child::after{left:5em;width:4em;}
+	header ul li:nth-child(3):hover ~ li:last-child::after{left:10em;width:4em;}
+	header ul li:last-child:hover::after{left:15em;width:4em;
+	}
+	#triangle,#triangle1,#triangle2,#triangle3
+	{
+		margin-left: 65px;
+	}
+	.submit
+	{
+		width: 35%;
+	}
+	.texte_slider
+	{
+		margin-left: 40px;
+	}
+}
+@media all and (max-width: 320px)
+{
+	.texte_slider
+	{
+		font-size: 0.5em;
+	}
+}
