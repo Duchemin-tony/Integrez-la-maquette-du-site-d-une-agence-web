@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="description" content="Site de la WebAgency, création de site web">
+        <meta name="author" content="Tony DUCHEMIN">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="Style3.css"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <!-- Open Graph -->
+        <meta property="og:title" content="WebAgency : L'agence de tous vos projets !" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://www.web-agency-open.fr/" />
+        <meta property="og:image" content="web-agency-open.frimages/logo.png" />
+        <title>WEBAGENCY : L'agence de tous vos projets !</title>
+    </head>
+    <body>
+        <!-- Header -->
+        <div id="bloc_page">
+            <header id="accueil" class="header">
+                <!-- Barre de navigation + Logo -->
+                <div class="en_tete">
+                    <div class="logo">
+                        <img src="images/logo.png" alt="logo"/>
+                    </div>
+                    <div id="menu">
+                        <nav>
+                            <ul>
+                                <li><a href="#accueil">Accueil</a></li>
+                                <li><a href="#nos_services">Services</a></li>
+                                <li><a href="#projets">Portfolio</a></li>
+                                <li><a href="#contact">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <!-- Texte du Slider/ carousel-->
+                <div id="slider">
+                    <div class="texte_slider">
+                        <h1><span>WEBAGENCY</span> : L'AGENCE DE TOUS <br />VOS PROJETS !</h1>
+                        <p>Vous avez un projet web ? La WebAgency vous aide à le réaliser ! </p>
+                        <br />
+                        <a href="#">Plus d'infos</a>
+                    </div>
+                </div>
+                <!-- Carousel  -->
+                <div class="carousel">
+                    <div class="carousel-inner">
+                        <input class="carousel-open" type="radio" id="carousel-1" name="carousel" checked="checked" />
+                        <div class="carousel-item">
+                            <img src="images/slider/bg1.jpg" alt="Slider1" />
+                        </div>
+                        <input class="carousel-open" type="radio" id="carousel-2" name="carousel" />
+                        <div class="carousel-item">
+                            <img src="images/slider/bg2.jpg" alt="Slider2" />
+                        </div>
+                        <!-- Curseur de selection image -->
+                        <label for="carousel-2" class="carousel-control next control-1" title="Suivant">
+                        <i class="fa fa-angle-right fleche_droite"></i>
+                        </label>
+                        <label for="carousel-1" class="carousel-control prev control-2" title="Précédent">
+                        <i class="fa fa-angle-left fleche_gauche"></i>
+                        </label>
+                        <label for="carousel-2" class="carousel-control prev control-1" title="Précédent">
+                        <i class="fa fa-angle-left fleche_gauche"></i>
+                        </label>
+                        <label for="carousel-1" class="carousel-control next control-2" title="Suivant">
+                        <i class="fa fa-angle-right fleche_droite"></i>
+                        </label>
+                    </div>
+                </div>
+                <div id="timeline"></div>
+                <!-- Barre de progression -->
+            </header>
